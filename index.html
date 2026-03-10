@@ -1,145 +1,253 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-<div class="seccion-objetivos">
-
-<h2>Objetivos Específicos</h2>
-
-<div class="acordeon">
-
-<div class="item">
-<div class="titulo" onclick="toggle(this)">
-<span class="numero">01</span>
-Objetivo específico 1
-</div>
-
-<div class="contenido">
-<p>
-Analizar los fundamentos y estructuras conceptuales de la planeación estratégica del Marketing Digital, comprendiendo su importancia dentro de los contextos académicos y empresariales.
-</p>
-</div>
-</div>
-
-
-<div class="item">
-<div class="titulo" onclick="toggle(this)">
-<span class="numero">02</span>
-Objetivo específico 2
-</div>
-
-<div class="contenido">
-<p>
-Aplicar los conocimientos teóricos y prácticos del Marketing Digital mediante ejercicios y experimentos académicos que permitan desarrollar habilidades para su futura implementación en contextos laborales y económicos.
-</p>
-</div>
-</div>
-
-</div>
-
-</div>
-
+<meta charset="UTF-8">
+<title>Objetivos Específicos</title>
 
 <style>
 
 body{
-font-family:Arial;
 margin:0;
+font-family:poppins;
 background:#f0eee9;
 }
 
-/* sección */
+/* PORTADA */
 
-.seccion-objetivos{
+.portada{
+height:1450px;
+background:url("./img/Esp1.png") center/cover no-repeat;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+color:white;
+position:relative;
+}
+
+.portada::after{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.55);
+}
+
+.portada-contenido{
+position:relative;
+z-index:2;
+}
+
+.portada h1{
+font-size:36px;
+margin-bottom:10px;
+}
+
+.portada p{
+font-size:18px;
+margin-bottom:20px;
+}
+
+.boton{
+padding:12px 28px;
+font-size:17px;
+border:none;
+background:#2f8f9d;
+color:white;
+border-radius:8px;
+cursor:pointer;
+}
+
+/* MODAL */
+
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:url(./img/Esp2.png) center/cover no-repeat;
+justify-content:center;
+align-items:center;
+z-index:10;
+position:fixed;
+}
+
+/* CAPA DE OPACIDAD */
+
+.modal::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.5);
+z-index:1;
+}
+
+.modal-contenido{
+background:#ffffff;
+width:90%;
 max-width:900px;
-margin:auto;
-padding:50px 30px;
+max-height:90vh;
+overflow:auto;
+border-radius:15px;
+padding:40px;
+position:relative;
+z-index:2;
 }
 
-.seccion-objetivos h2{
+.titulo-modal{
+text-align:center;
+font-size:48px;
 color:#00323c;
-font-size:34px;
-margin-bottom:30px;
+margin-bottom:40px;
 }
 
-/* acordeón */
+.cerrar{
+position:fixed;
+top:25px;
+right:40px;
+font-size:35px;
+cursor:pointer;
+color:#ffffff;
+z-index:3;
+}
 
-.acordeon .item{
-margin-bottom:15px;
-border-radius:12px;
-overflow:hidden;
-box-shadow:0 8px 18px rgba(0,0,0,0.1);
+/* LISTA DE OBJETIVOS */
+
+.item{
 background:white;
+border-radius:12px;
+margin-bottom:25px;
+box-shadow:0 6px 15px rgba(0,0,0,0.1);
 }
-
-/* encabezado */
 
 .titulo{
-padding:20px;
+padding:25px;
+font-weight:bold;
 cursor:pointer;
 display:flex;
 align-items:center;
 gap:15px;
-font-size:18px;
-font-weight:bold;
 color:#00323c;
-transition:0.3s;
+font-size:27px;
 }
-
-.titulo:hover{
-background:#f7f7f7;
-}
-
-/* número */
 
 .numero{
 background:#2f8f9d;
 color:white;
-width:35px;
-height:35px;
+width:45px;
+height:45px;
 display:flex;
 align-items:center;
 justify-content:center;
 border-radius:50%;
-font-size:16px;
+font-size:20px;
 }
-
-/* contenido oculto */
 
 .contenido{
 max-height:0;
 overflow:hidden;
-transition:0.4s ease;
-padding:0 20px;
+transition:0.4s;
+padding:0 25px;
 }
 
 .contenido p{
-font-size:17px;
 line-height:1.6;
 color:#333;
-margin:15px 0;
+font-size:24px;
 }
 
 .item.activo .contenido{
-max-height:200px;
+max-height:300px;
+padding-bottom:25px;
 }
 
 </style>
+</head>
 
+<body>
+
+<!-- PORTADA -->
+
+<div class="portada">
+
+<div class="portada-contenido">
+
+<h1>Objetivos Específicos</h1>
+
+<p>Conoce los objetivos de aprendizaje de esta unidad</p>
+
+<button class="boton" onclick="abrirModal()">
+Ver objetivos
+</button>
+
+</div>
+
+</div>
+
+<!-- MODAL -->
+
+<div class="modal" id="modal">
+
+<span class="cerrar" onclick="cerrarModal()">✕</span>
+
+<div class="modal-contenido">
+
+<h2 class="titulo-modal">Objetivos Específicos</h2>
+
+<div class="item">
+
+<div class="titulo" onclick="toggle(this)">
+<span class="numero">1</span>
+Primer Objetivo
+</div>
+
+<div class="contenido">
+<p>
+Diseñar estrategias planificando un marketing integral considerando la importancia de llevar las ideas empresariales a mercados digitales dominados por la tecnología, donde la innovación y actualización constante determinan el desarrollo de las plataformas de mercadeo empresarial.
+</p>
+</div>
+
+</div>
+
+<div class="item">
+
+<div class="titulo" onclick="toggle(this)">
+<span class="numero">2</span>
+Segundo Objetivo
+</div>
+
+<div class="contenido">
+<p>
+Construir e implementar programas estratégicos apoyados en herramientas tecnológicas que permitan diseñar, ejecutar y evaluar campañas publicitarias digitales para mejorar el posicionamiento de productos y fortalecer el marketing empresarial.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 <script>
 
+function abrirModal(){
+document.getElementById("modal").style.display="flex";
+}
+
+function cerrarModal(){
+document.getElementById("modal").style.display="none";
+}
+
 function toggle(element){
-
-const item = element.parentElement;
-
-item.classList.toggle("activo");
-
+element.parentElement.classList.toggle("activo");
 }
 
 </script>
