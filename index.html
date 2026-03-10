@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<div class="seccion-objetivos">
+
+<h2>Objetivos Específicos</h2>
+
+<div class="acordeon">
+
+<div class="item">
+<div class="titulo" onclick="toggle(this)">
+<span class="numero">01</span>
+Objetivo específico 1
+</div>
+
+<div class="contenido">
+<p>
+Analizar los fundamentos y estructuras conceptuales de la planeación estratégica del Marketing Digital, comprendiendo su importancia dentro de los contextos académicos y empresariales.
+</p>
+</div>
+</div>
+
+
+<div class="item">
+<div class="titulo" onclick="toggle(this)">
+<span class="numero">02</span>
+Objetivo específico 2
+</div>
+
+<div class="contenido">
+<p>
+Aplicar los conocimientos teóricos y prácticos del Marketing Digital mediante ejercicios y experimentos académicos que permitan desarrollar habilidades para su futura implementación en contextos laborales y económicos.
+</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+background:#f0eee9;
+}
+
+/* sección */
+
+.seccion-objetivos{
+max-width:900px;
+margin:auto;
+padding:50px 30px;
+}
+
+.seccion-objetivos h2{
+color:#00323c;
+font-size:34px;
+margin-bottom:30px;
+}
+
+/* acordeón */
+
+.acordeon .item{
+margin-bottom:15px;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 8px 18px rgba(0,0,0,0.1);
+background:white;
+}
+
+/* encabezado */
+
+.titulo{
+padding:20px;
+cursor:pointer;
+display:flex;
+align-items:center;
+gap:15px;
+font-size:18px;
+font-weight:bold;
+color:#00323c;
+transition:0.3s;
+}
+
+.titulo:hover{
+background:#f7f7f7;
+}
+
+/* número */
+
+.numero{
+background:#2f8f9d;
+color:white;
+width:35px;
+height:35px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+font-size:16px;
+}
+
+/* contenido oculto */
+
+.contenido{
+max-height:0;
+overflow:hidden;
+transition:0.4s ease;
+padding:0 20px;
+}
+
+.contenido p{
+font-size:17px;
+line-height:1.6;
+color:#333;
+margin:15px 0;
+}
+
+.item.activo .contenido{
+max-height:200px;
+}
+
+</style>
+
+
+<script>
+
+function toggle(element){
+
+const item = element.parentElement;
+
+item.classList.toggle("activo");
+
+}
+
+</script>
+
+</body>
+</html>
